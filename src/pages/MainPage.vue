@@ -55,7 +55,7 @@ export default class MainPage extends Vue {
         width: 100%;
 
         .title {
-          transition: ease-in-out $title-duration;
+          transition: 0.2s ease, top $title-duration ease-in-out;
           position: absolute;
           top: -11rem;
           opacity: 1;
@@ -71,23 +71,31 @@ export default class MainPage extends Vue {
           margin-bottom: 2rem;
 
           &.before-load {
-            top: 8rem;
+            top: 0rem;
             opacity: 0;
+          }
+
+          &:hover {
+            color: $color-gray-800;
+            font-size: 8.1rem;
           }
         }
 
         .description {
-          transition: ease 1.2s;
-          transition-delay: $title-duration;
+          transition: opacity 1.2s ease $title-duration, color ease 0.5s;
           font: {
             size: 3rem;
             weight: 300;
           }
-          color: $color-main;
+          color: $color-secondary;
           text-align: center;
 
           &.before-load {
             opacity: 0;
+          }
+
+          &:hover {
+            color: $color-secondary-variant;
           }
         }
       }
