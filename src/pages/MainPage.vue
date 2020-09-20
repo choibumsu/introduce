@@ -12,24 +12,23 @@
 </template>
 
 <script lang="ts">
-export default {
-  data() {
-    return {
-      name: {
-        kor: '최범수',
-        eng: 'Choi Bumsu',
-      },
-      urls: {
-        github: 'https://github.com/choibumsu',
-      },
-    }
-  },
+import { Vue } from 'vue-class-component'
+
+export default class MainPage extends Vue {
+  name = {
+    kor: '최범수',
+    eng: 'Choi Bumsu',
+  }
+  urls = {
+    github: 'https://github.com/choibumsu',
+  }
+
   mounted() {
     setTimeout(() => {
       const $title = this.$el.querySelector('.title')
       $title.style.top = '-10rem'
     }, 100)
-  },
+  }
 }
 </script>
 
