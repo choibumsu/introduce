@@ -1,0 +1,22 @@
+@import 'package';
+
+html {
+  font-size: $font-base-size;
+}
+
+.hidden {
+  visibility: hidden !important;
+}
+
+.dp-none {
+  display: none !important;
+}
+
+.dp-block {
+  display: block !important;
+}
+
+.stop-scroll {
+  height: 100vh;
+  overflow-y: hidden;
+}
