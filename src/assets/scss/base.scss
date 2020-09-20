@@ -1,7 +1,12 @@
 @import 'package';
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
 
 html {
-  font-size: $font-base-size;
+  font-size: $size-font-default;
+
+  * {
+    font-family: $font-main;
+  }
 }
 
 .hidden {
