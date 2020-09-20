@@ -55,7 +55,7 @@ export default class MainPage extends Vue {
         width: 100%;
 
         .title {
-          transition: 0.2s ease, top $title-duration ease-in-out;
+          transition: all $title-duration ease-in-out, color, transform 0.2s ease;
           position: absolute;
           top: -11rem;
           opacity: 1;
@@ -77,7 +77,7 @@ export default class MainPage extends Vue {
 
           &:hover {
             color: $color-gray-800;
-            font-size: 8.1rem;
+            transform: scale(1.03);
           }
         }
 
