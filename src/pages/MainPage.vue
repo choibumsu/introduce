@@ -50,16 +50,14 @@ export default class MainPage extends Vue {
 
         display: flex;
         justify-content: center;
-        flex-direction: column;
         position: relative;
         width: 100%;
 
         .title {
           transition: all $title-duration ease-in-out, color, transform 0.2s ease;
           position: absolute;
-          top: -11rem;
+          top: -9rem;
           opacity: 1;
-          width: 100%;
 
           font: {
             size: 8rem;
@@ -67,8 +65,7 @@ export default class MainPage extends Vue {
           }
           color: $color-gray-900;
           text-align: center;
-          line-height: 9rem;
-          margin-bottom: 2rem;
+          line-height: 8rem;
 
           &.before-load {
             top: 0rem;
