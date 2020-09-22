@@ -1,3 +1,4 @@
 # robots.txt for https://choibumsu.com/
 
 User-agent: *
+Allow: /
