@@ -4,6 +4,10 @@
 html {
   font-size: $size-font-default;
 
+  @include mobile {
+    font-size: $size-font-mobile;
+  }
+
   * {
     font-family: $font-main;
   }
