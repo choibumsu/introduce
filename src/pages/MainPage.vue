@@ -27,7 +27,7 @@ export default class MainPage extends Vue {
   mounted() {
     setTimeout(() => {
       this.isLoad = true
-    }, 50)
+    }, 30)
   }
 }
 </script>
