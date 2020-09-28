@@ -8,6 +8,35 @@
         <p class="description" :class="{ 'before-load': !isLoad }">Frontend Developer</p>
       </div>
     </section>
+    <section class="profile">
+      <div class="profile-img">
+        <img src="../assets/img/profile_main_cropped.jpeg" />
+      </div>
+      <div class="content-container">
+        <h2 class="name">{{ name.eng }} ({{ name.kor }})</h2>
+        <div class="content-item">
+          <a href="mailto:bumsu0211@gmail.com">bumsu0211@gmail.com</a>
+        </div>
+        <div class="content-item">
+          <a href="tel:01074080064">010-7408-0064</a>
+        </div>
+
+        <div class="content-item sns">
+          <a href="https://www.instagram.com/bbamsu211/?hl=ko">
+            <img src="../assets/img/instagram.svg" />
+          </a>
+          <a href>
+            <img src="../assets/img/facebook.svg" />
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <div>
+      Icons made by
+      <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from
+      <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+    </div>
   </div>
 </template>
 
@@ -93,6 +122,55 @@ export default class MainPage extends Vue {
 
           &:hover {
             color: $color-secondary-variant;
+          }
+        }
+      }
+    }
+
+    &.profile {
+      display: flex;
+      align-items: start;
+      padding: 8rem calc((100% - #{$size-web-width}) / 2);
+
+      .profile-img {
+        margin-right: 12rem;
+
+        img {
+          width: 25rem;
+          height: 25rem;
+          border-radius: 50%;
+        }
+      }
+
+      .content-container {
+        padding-top: 2rem;
+
+        .name {
+          font: {
+            weight: 500;
+            size: 2.4rem;
+          }
+          color: $color-gray-900;
+          margin-bottom: 2rem;
+        }
+
+        .content-item {
+          font: {
+            weight: 400;
+            size: 1.6rem;
+          }
+          color: $color-gray-600;
+          margin-bottom: 0.8rem;
+
+          &.sns {
+            display: flex;
+            align-content: center;
+            padding-top: 2rem;
+
+            > * {
+              width: 6rem;
+              margin-right: 0.8rem;
+            }
           }
         }
       }
