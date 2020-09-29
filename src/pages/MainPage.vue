@@ -20,12 +20,14 @@
         <div class="content-item">
           <a href="tel:01074080064">010-7408-0064</a>
         </div>
-
         <div class="content-item sns">
-          <a href="https://www.instagram.com/bbamsu211/?hl=ko">
+          <a :href="urls.github" class="icon" target="blank">
+            <img src="../assets/img/github.svg" />
+          </a>
+          <a :href="urls.instagrem" class="icon" target="blank">
             <img src="../assets/img/instagram.svg" />
           </a>
-          <a href>
+          <a :href="urls.facebook" class="icon" target="blank">
             <img src="../assets/img/facebook.svg" />
           </a>
         </div>
@@ -51,6 +53,8 @@ export default class MainPage extends Vue {
   }
   urls = {
     github: 'https://github.com/choibumsu',
+    instagram: 'https://www.instagram.com/bbamsu211/?hl=ko',
+    facebook: 'https://www.facebook.com/bum0211',
   }
 
   mounted() {
@@ -132,6 +136,14 @@ export default class MainPage extends Vue {
       align-items: start;
       padding: 8rem calc((100% - #{$size-web-width}) / 2);
 
+      @include mobile {
+        justify-content: center;
+        padding: {
+          left: 2;
+          right: 2rem;
+        }
+      }
+
       .profile-img {
         margin-right: 12rem;
 
@@ -148,7 +160,7 @@ export default class MainPage extends Vue {
         .name {
           font: {
             weight: 500;
-            size: 2.4rem;
+            size: 2.8rem;
           }
           color: $color-gray-900;
           margin-bottom: 2rem;
@@ -157,7 +169,7 @@ export default class MainPage extends Vue {
         .content-item {
           font: {
             weight: 400;
-            size: 1.6rem;
+            size: 1.8rem;
           }
           color: $color-gray-600;
           margin-bottom: 0.8rem;
@@ -167,9 +179,14 @@ export default class MainPage extends Vue {
             align-content: center;
             padding-top: 2rem;
 
-            > * {
+            .icon {
               width: 6rem;
-              margin-right: 0.8rem;
+              margin-right: 1.6rem;
+              cursor: pointer;
+
+              img {
+                width: 100%;
+              }
             }
           }
         }
