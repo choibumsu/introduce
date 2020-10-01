@@ -4,21 +4,21 @@
       <img src="../assets/img/profile_main_cropped.jpeg" />
     </div>
     <div class="content-container">
-      <h2 class="name">{{ name.eng }} ({{ name.kor }})</h2>
+      <h2 class="name">{{ profile.name.eng }} ({{ profile.name.kor }})</h2>
       <div class="content-item">
-        <a href="mailto:bumsu0211@gmail.com">bumsu0211@gmail.com</a>
+        <a :href="'mailto:' + profile.email">{{ profile.email }}</a>
       </div>
       <div class="content-item">
-        <a href="tel:01074080064">010-7408-0064</a>
+        <a :href="'tel:' + numPhone">{{ profile.phone }}</a>
       </div>
       <div class="content-item sns">
-        <a :href="github" class="icon" target="blank">
+        <a :href="urls.github" class="icon" target="blank">
           <img src="../assets/img/github.svg" />
         </a>
-        <a :href="instagram" class="icon" target="blank">
+        <a :href="urls.instagram" class="icon" target="blank">
           <img src="../assets/img/instagram.svg" />
         </a>
-        <a :href="facebook" class="icon" target="blank">
+        <a :href="urls.facebook" class="icon" target="blank">
           <img src="../assets/img/facebook.svg" />
         </a>
       </div>
@@ -27,19 +27,29 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, PropType } from 'vue'
+import { Profile, Urls } from '@/types.d.ts'
 
 export default defineComponent({
   props: {
-    name: Object,
-    github: String,
-    instagram: String,
-    facebook: String,
+    profile: {
+      type: Object as PropType<Profile>,
+      required: true,
+      validator(profile: Profile) {
+        return !!profile.phone
+      },
+    },
+    urls: Object as PropType<Urls>,
+  },
+  computed: {
+    numPhone(): string {
+      return this.profile.phone.replace(/-/gi, '')
+    },
   },
 })
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '../assets/scss/package';
 
 .profile {
@@ -58,9 +68,13 @@ export default defineComponent({
   .profile-img {
     margin-right: 12rem;
 
+    @include mobile {
+      margin-right: 5rem;
+    }
+
     img {
-      width: 25rem;
-      height: 25rem;
+      width: 24rem;
+      height: 24rem;
       border-radius: 50%;
     }
   }
@@ -79,11 +93,11 @@ export default defineComponent({
 
     .content-item {
       font: {
-        weight: 400;
+        weight: 300;
         size: 1.8rem;
       }
       color: $color-gray-600;
-      margin-bottom: 0.8rem;
+      margin-bottom: 1rem;
 
       &.sns {
         display: flex;
