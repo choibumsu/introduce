@@ -7,6 +7,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { useStore } from 'vuex'
 import { Profile, Urls } from '@/types.d.ts'
 import MainSection from '@/components/MainSection.vue'
 import ProfileSection from '@/components/ProfileSection.vue'
@@ -18,10 +19,10 @@ export default defineComponent({
   },
   computed: {
     profile(): Profile {
-      return this.$store.state.profile
+      return useStore().state.profile
     },
     urls(): Urls {
-      return this.$store.state.urls
+      return useStore().state.urls
     },
   },
 })
