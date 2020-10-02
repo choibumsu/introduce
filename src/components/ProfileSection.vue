@@ -135,6 +135,10 @@ export default defineComponent({
 
           img {
             width: 100%;
+
+            &:hover {
+              opacity: 0.7;
+            }
           }
         }
       }
