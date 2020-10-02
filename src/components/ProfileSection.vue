@@ -4,7 +4,7 @@
       <img src="../assets/img/profile_main_cropped.jpeg" />
     </div>
     <div class="content-container">
-      <h2 class="name">{{ profile.name.eng }} ({{ profile.name.kor }})</h2>
+      <h2 class="name">{{ profile.name.eng }}</h2>
       <div class="content-item">
         <a :href="'mailto:' + profile.email">{{ profile.email }}</a>
       </div>
@@ -54,14 +54,17 @@ export default defineComponent({
 
 .profile {
   display: flex;
-  align-items: start;
-  padding: 8rem calc((100% - #{$size-web-width}) / 2);
+  align-items: center;
+  height: 100vh;
+  padding: 0 calc((100% - #{$size-web-width}) / 2);
 
   @include mobile {
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
     padding: {
-      left: 2;
-      right: 2rem;
+      left: 5rem;
+      right: 5rem;
     }
   }
 
@@ -69,23 +72,36 @@ export default defineComponent({
     margin-right: 12rem;
 
     @include mobile {
-      margin-right: 5rem;
+      margin: {
+        right: 0;
+        bottom: 3rem;
+      }
     }
 
     img {
       width: 24rem;
       height: 24rem;
       border-radius: 50%;
+
+      @include mobile {
+        width: 36rem;
+        height: 36rem;
+      }
     }
   }
 
   .content-container {
     padding-top: 2rem;
 
+    @include mobile {
+      font-size: 8px;
+      text-align: center;
+    }
+
     .name {
       font: {
         weight: 500;
-        size: 2.8rem;
+        size: 3.2em;
       }
       color: $color-gray-900;
       margin-bottom: 2rem;
@@ -94,20 +110,28 @@ export default defineComponent({
     .content-item {
       font: {
         weight: 300;
-        size: 1.8rem;
+        size: 1.8em;
       }
       color: $color-gray-600;
       margin-bottom: 1rem;
 
       &.sns {
         display: flex;
-        align-content: center;
+        align-items: center;
         padding-top: 2rem;
+
+        @include mobile {
+          justify-content: center;
+        }
 
         .icon {
           width: 6rem;
           margin-right: 1.6rem;
           cursor: pointer;
+
+          &:last-child {
+            margin-right: 0;
+          }
 
           img {
             width: 100%;
